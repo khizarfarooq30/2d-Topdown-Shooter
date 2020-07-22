@@ -26,4 +26,13 @@ public class Projectile : MonoBehaviour
         Instantiate(particleFx, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            collision.GetComponent<Enemy>().TakeDamage(1);
+            DestroyParticleEffects();
+        }
+    }
 }
