@@ -24,11 +24,11 @@ public class Weapon : MonoBehaviour
         Quaternion rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         transform.rotation = rotation;
 
+       
         if (Input.GetMouseButtonDown(0))
         {
             if(Time.time >= shotTime)
             {
-                Debug.Log("Now instantiating");
                 Instantiate(projectile, shotPoint.position, transform.rotation);
                 shotTime = Time.time + timeBetweenShot;
             }

@@ -7,15 +7,23 @@ public class Projectile : MonoBehaviour
     public float speed;
     public float lifeTime;
 
+    public GameObject particleFx;
+
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, lifeTime);
+        Invoke("DestroyParticleEffects", lifeTime);
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector2.up * speed * Time.deltaTime);
+    }
+
+    void DestroyParticleEffects()
+    {
+        Instantiate(particleFx, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
