@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed;
+    public int health;
 
     Rigidbody2D rb;
     Animator animator;
@@ -36,5 +37,15 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + moveAmount * Time.deltaTime);
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        health -= damageAmount;
+
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

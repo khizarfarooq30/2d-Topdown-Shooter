@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed;
     public float lifeTime;
+    [SerializeField] int damage;
 
     public GameObject particleFx;
 
@@ -31,7 +32,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            collision.GetComponent<Enemy>().TakeDamage(1);
+            collision.GetComponent<Enemy>().TakeDamage(damage);
             DestroyParticleEffects();
         }
     }
