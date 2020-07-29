@@ -24,7 +24,6 @@ public class Summoner : Enemy
 
     private float summonTime;
 
-
     public override void Start()
     {
         base.Start();
@@ -52,7 +51,7 @@ public class Summoner : Enemy
                 if (Time.time >= summonTime)
                 {
                     summonTime = Time.time + timeBetweenSummons;
-                    anim.SetTrigger("Summoning");
+                    anim.SetTrigger("Summon");
                 }
 
             }
